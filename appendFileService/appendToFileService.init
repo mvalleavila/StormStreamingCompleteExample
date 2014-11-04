@@ -3,8 +3,9 @@
 logDir="logs"
 logFile="$logDir/appendToFile.log"
 
-inputFile="appendScript/LoremIpsum.txt"
-outputFile="spoolDir/growingFile.txt"
+inputFile="LoremIpsum.txt"
+outputDir="spoolDir"
+outputFile="$outputDir/growingFile.txt"
 appendDelay=1
 rotateDelay=30
 
@@ -14,7 +15,13 @@ start() {
   then
     mkdir $logDir
   fi
-  appendScript/appendToFile.sh $inputFile $outputFile $appendDelay $rotateDelay >> $logFile 2>&1 &
+  if [ ! -d $outputDir ]
+  then
+    mkdir $outputDir
+  fi
+
+  ./appendToFile.sh $inputFile $outputFile $appendDelay $rotateDelay >> $logFile 2>&1 &
+
   RETVAL=$?
   return $RETVAL
 }
