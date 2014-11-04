@@ -1,0 +1,16 @@
+rm: cannot remove `spoolDir/growingFile.txt*': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.0': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.1': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.2': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.3': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.4': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.5': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.6': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.7': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.8': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.9': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.10': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.11': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.12': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.13': No such file or directory
+mv: cannot stat `spoolDir/growingFile.txt.14': No such file or directory

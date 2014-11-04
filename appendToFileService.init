@@ -1,0 +1,52 @@
+#!/bin/bash
+
+logDir="logs"
+logFile="$logDir/appendToFile.log"
+
+inputFile="appendScript/LoremIpsum.txt"
+outputFile="spoolDir/growingFile.txt"
+appendDelay=1
+rotateDelay=30
+
+start() {
+  echo "Starting appendToFile"
+  if [ ! -d $logDir ]
+  then
+    mkdir $logDir
+  fi
+  appendScript/appendToFile.sh $inputFile $outputFile $appendDelay $rotateDelay >> $logFile 2>&1 &
+  RETVAL=$?
+  return $RETVAL
+}
+
+stop() {
+  echo "Stoping appendToFile "
+  pkill -f appendToFile.sh
+}
+
+restart() {
+    stop
+    start
+}
+
+status() {
+  pid=$(pgrep -f appendToFile.sh)
+
+  if [ -z $pid ]; then
+    echo "appendToFile is NOT running."
+    return 1
+  else
+    echo "appendToFile is running (pid is $pid)."
+  fi
+
+}
+
+case "$1" in
+  start)   start;;
+  stop)    stop;;
+  restart) restart;;
+  status)  status;;
+  *)       echo "Usage: $0 {start|stop|restart}"
+           RETVAL=2;;
+esac
+exit $RETVAL
